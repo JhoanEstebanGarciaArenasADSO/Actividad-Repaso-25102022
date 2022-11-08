@@ -2,35 +2,19 @@
     display: block;
     margin: 0 auto;
 }
-input[type="text"]{
-    display: block;
+input[type="number"]{
+    background-color: rgb(173, 207, 207);
 }
 input[type="submit"]{
-    display: block;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-family: sans-serif;
 }
-table thead tr{
-    background: #fe8737;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-table thead tr th{
-    padding: 10px;
-}
-table tbody tr{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-table tbody tr:nth-child(2n+1){
-    background: #ffd9ce;
-}
-table tbody tr:nth-child(2n){
-    background: #ffeee7;
-}
+
+
 h3
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(15, 18, 18);
+    color: rgb(14, 100, 100);
 }
 h1 {
     text-align: center;

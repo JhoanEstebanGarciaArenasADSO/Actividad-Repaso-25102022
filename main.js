@@ -1,38 +1,31 @@
 addEventListener("DOMContentLoaded", (e) => {
 
-    let hor = document.querySelector("#hora")
-    let form = document.querySelector("#horas")
-    let pago = 5208.33
-    let cont= 0
+    let myform = document.querySelector("#numeros");
+    let h= document.querySelector("h2")
     let acum = 0
-    let cuerp = document.querySelector("#cuerpo")
-    let suel = 0
-    let nam =document.querySelector("#name")
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let dataInput = Object.fromEntries(new FormData(e.target));
-    if ( cont <2) {
-        let nomina = dataInput.hora*pago
-        cont+=1
-        acum+= nomina
-        cuerp.insertAdjacentHTML("beforeend", `
-        <tr>
-        <td>${dataInput.nombre}</td>
-        <td>${dataInput.hora}</td>
-        <td>${dataInput.hora*pago}</td>
-        </tr>
-        `)
-    }
-    else {
-        cuerp.insertAdjacentHTML("beforeend", `
-        <tr>
-            <td colspan="3">"La nomina es "${acum}</td>
-        </tr>
-        `)
-        }
-    hor.value = ""
-    nam.value = ""
+
+    myform.addEventListener("submit", (e) => {
+    e.preventDefault()
+    let datainput = Object.fromEntries(new FormData(e.target));
     
-})
+
+    let N = Number(datainput.N)
+    let acum = 0
+
+    for (let i = 1 ; i <= N/2 ; ++i) {
+
+        if(N % i == 0){
+
+            acum += i
+        
+        if (acum != 0 && acum == N){
+        h.innerHTML= "Si es perfecto"}
+
+        else{
+        h.innerHTML= "No es perfecto"}
+        }
+    }
+
+    })
 
 })
