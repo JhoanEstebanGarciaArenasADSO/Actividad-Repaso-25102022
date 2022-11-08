@@ -1,30 +1,28 @@
 addEventListener("DOMContentLoaded", (e) => {
 
-    let myform = document.querySelector("#numeros");
-    let h= document.querySelector("h2")
-    let acum = 0
+    let vendedores = document.querySelector("#vendedores");
+    let tabla = document.querySelector('tbody')
 
-    myform.addEventListener("submit", (e) => {
+    vendedores.addEventListener("submit", (e) => {
     e.preventDefault()
     let datainput = Object.fromEntries(new FormData(e.target));
-    
+    let nombre= datainput.nombre
+    let venta1= Number(datainput.Venta1)
+    let venta2= Number(datainput.Venta2)
+    let venta3= Number(datainput.Venta3)
+    let sueldo= 500000
 
-    let N = Number(datainput.N)
-    let acum = 0
+    let comision= Number((venta1 + venta2 + venta3) * 0.1)
 
-    for (let i = 1 ; i <= N/2 ; ++i) {
+    let sueldoTotal= comision + sueldo
 
-        if(N % i == 0){
-
-            acum += i
-        
-        if (acum != 0 && acum == N){
-        h.innerHTML= "Si es perfecto"}
-
-        else{
-        h.innerHTML= "No es perfecto"}
-        }
-    }
+    tabla.insertAdjacentHTML("beforeend", 
+            `<tr>
+                <td>${nombre}</td>
+                <td>${comision}</td>
+                <td>${sueldoTotal}</td>
+            </tr>`
+    )
 
     })
 
